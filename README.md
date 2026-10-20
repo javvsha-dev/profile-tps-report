@@ -9,7 +9,7 @@ A plain HTML + CSS profile site. No build step, no frameworks.
 - `index.html` — all the content (edit text here)
 - `styles.css` — colors, fonts, layout (colors are at the top)
 - `assets/` — photo and favicon
-- `Shashikiran-Javvaji-Resume.pdf` — the "Download Resume" file
+- `CNAME` — custom domain (www.shashikiranjavvaji.site); do not delete
 
 ## Preview locally
 

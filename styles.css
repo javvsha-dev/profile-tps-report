@@ -93,6 +93,7 @@ a:hover { color: var(--gold); }
 .btn-primary { background: var(--navy); color: var(--bg); }
 .btn-primary:hover { opacity: 0.85; color: var(--bg); }
 .btn-outline { border: 1px solid var(--border); background: var(--card); }
+.btn-icon { font-size: 1.35em; line-height: 0; vertical-align: -0.08em; margin-right: 0.15em; }
 .btn:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
 /* ---------- Cards & lists ---------- */
