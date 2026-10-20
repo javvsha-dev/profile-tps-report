@@ -1,0 +1,147 @@
+/* ---------- Colors & fonts: change these to restyle the whole site ---------- */
+:root {
+  --bg: #fbfaf7;
+  --text: #0f172a;
+  --muted: #5b6478;
+  --card: #ffffff;
+  --border: #e9e4da;
+  --navy: #141f38;
+  --gold: #f29d0d;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Automatic dark mode when the visitor's computer is in dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1222;
+    --text: #f5f3ee;
+    --muted: #b3ad9f;
+    --card: #111a2e;
+    --border: #22304d;
+    --navy: #f5f3ee;
+  }
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; margin: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.3rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+p  { margin: 0 0 0.75rem; }
+a  { color: inherit; }
+a:hover { color: var(--gold); }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.muted   { color: var(--muted); font-size: 0.92rem; }
+.accent  { color: var(--gold); font-weight: 500; }
+.company { color: var(--gold); font-weight: 500; margin-bottom: 0.2rem; }
+.prose p { font-size: 1.08rem; color: var(--text); opacity: 0.85; }
+.dots.prose li { font-size: 1.02rem; margin-bottom: 0.7rem; }
+.note { margin-top: 1.5rem; font-style: italic; }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  padding-top: 5rem;
+  border-top: none;
+}
+.photo {
+  width: 192px;
+  height: 192px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--card);
+  box-shadow: 0 20px 50px -12px rgb(15 23 42 / 0.2);
+  flex-shrink: 0;
+}
+.title { font-size: 1.4rem; font-weight: 300; color: var(--muted); margin: 0.4rem 0 1rem; }
+.meta  { list-style: none; padding: 0; margin: 0 0 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; color: var(--muted); font-size: 0.92rem; }
+.meta a { text-decoration: none; }
+.lead  { font-size: 1.12rem; max-width: 40rem; margin-bottom: 1.75rem; }
+
+/* ---------- Buttons ---------- */
+.buttons { display: flex; flex-wrap: wrap; gap: 1rem; }
+.buttons.center { justify-content: center; }
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s, background 0.2s;
+}
+.btn-primary { background: var(--navy); color: var(--bg); }
+.btn-primary:hover { opacity: 0.85; color: var(--bg); }
+.btn-outline { border: 1px solid var(--border); background: var(--card); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Cards & lists ---------- */
+.card {
+  background: var(--card);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px -8px rgb(15 23 42 / 0.12);
+}
+.job { margin-bottom: 1.5rem; border-left: 3px solid var(--gold); }
+.job-head { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+.job-head > span { white-space: nowrap; }
+
+.dots { list-style: none; padding: 0; margin: 0; }
+.dots li { position: relative; padding-left: 1.1rem; margin-bottom: 0.45rem; font-size: 0.95rem; }
+.dots li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid.two { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.grid h3 { padding-bottom: 0.5rem; margin-bottom: 0.9rem; border-bottom: 1px solid var(--border); }
+.grid.two h3 { border: none; padding: 0; margin-bottom: 0.3rem; }
+
+/* ---------- Contact & footer ---------- */
+.contact { text-align: center; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.footer p { margin: 0; }
+
+/* ---------- Phones & small screens ---------- */
+@media (max-width: 760px) {
+  .hero { flex-direction: column; align-items: center; text-align: center; padding-top: 3rem; }
+  .meta, .buttons { justify-content: center; }
+  .job-head { flex-direction: column; gap: 0.25rem; }
+  .grid, .grid.two { grid-template-columns: 1fr; }
+}
